@@ -5,7 +5,8 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 COPY TextEditor/ /usr/local/tomcat/webapps/ROOT/
 
-RUN sed -i 's/port="8080"/port="10000"/' /usr/local/tomcat/conf/server.xml
+RUN sed -i 's/port="8080"/port="10000"/' /usr/local/tomcat/conf/server.xml \
+    && sed -i 's/port="8005"/port="-1"/' /usr/local/tomcat/conf/server.xml
 
 EXPOSE 10000
 
